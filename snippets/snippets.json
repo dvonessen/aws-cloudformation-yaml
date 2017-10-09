@@ -1,0 +1,194 @@
+{
+    /*
+        // Place your snippets for YAML here. Each snippet is defined under a snippet name and has a prefix, body and
+        // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+        // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+        // same ids are connected.
+        // Example:
+        "Print to console": {
+            "prefix": "log",
+            "body": [
+                "console.log('$1');",
+                "$2"
+            ],
+            "description": "Log output to console"
+        }
+    */
+
+        "AWS CloudFormation Template": {
+            "prefix": "start",
+            "body": [
+                "---",
+                "AWSTemplateFormatVersion: '2010-09-09'",
+                "Description: 'Master stack: ${1:PathToMasterStackFile}'",
+                "",
+                "Parameters:",
+                "  BranchName:",
+                "    Default: ${2:BranchName}",
+                "    Description: Choose which Branch do you want to use",
+                "    Type: String",
+                " Customer:",
+                "    Description: is used as Customer tag value for all resources",
+                "    Type: String",
+                "    Default: ${3:Customer}",
+                "    AllowedPattern: ^[A-Za-z0-9]*$",
+                "    ConstraintDescription: must contain only alphanumeric characters and numbers.",
+                "    MaxLength: 20",
+                "    MinLength: 1",
+                "  CustomerProject:",
+                "    Description: is used as Customer project tag value for all resources",
+                "    Type: String",
+                "    Default: ${4:CustomerProject}",
+                "    AllowedPattern: ^[A-Za-z0-9]*$",
+                "    ConstraintDescription: must contain only alphanumeric characters and numbers.",
+                "    MaxLength: 20",
+                "    MinLength: 1",
+                "  Environment:",
+                "    Description: Environment to deploy. Use staging for limited resources and no alerts.",
+                "    Type: String",
+                "    Default: ${5|Staging,Production|}",
+                "    AllowedValues:",
+                "    - Staging",
+                "    - Production",
+                "",
+                "Metadata:",
+                "AWS::CloudFormation::Interface:",
+                "  ParameterGroups:",
+                "  - Label:",
+                "      default: Tagging and billing",
+                "    Parameters:",
+                "    - Customer",
+                "    - CustomerProject",
+                " - Label:",
+                "      default: Choose Branch and Environment",
+                "    Parameters:",
+                "    - Environment",
+                "    - BranchName",
+                "",
+                "Mappings:",
+                "  CFNBucket:",
+                "    AllRegions:",
+                "      BucketUrl: https://clouds-configuration.s3.amazonaws.com/clouds/cfn",
+                "",
+                "Resources:",
+                "",
+                "Outputs:"
+            ],
+            "description": "This Snippet provides a complete AWS template structure."
+        },
+
+        "Resource": {
+            "prefix": "NewResource",
+            "body": [
+                "${1:ResourceName}:",
+                "  Type: AWS::${2:ResourceType}",
+                "  DependsOn:",
+                "  - ${3:ResourceDependsOn}",
+                "  Properties:",
+                "    ${0:ResourceProperties}"
+            ],
+            "description": "Adds new AWS resource to template"
+        },
+
+        "ResourceWithTemplate": {
+            "prefix": "NewResourceWithTemplateURL",
+            "body": [
+                "${1:ResourceName}:",
+                "Type: AWS::CloudFormation::Stack",
+                "DependsOn:",
+                "- ${2:ResourceDependsOn}",
+                "Properties:",
+                "  Parameters:",
+                "    ${3:ResourceParameters}",
+                "  TemplateURL:",
+                "    !Join",
+                "    - \"/\"",
+                "    - - !FindInMap [CFNBucket, AllRegions, BucketUrl]",
+                "      - !Ref BranchName",
+                "      - cfn-generic/${0:ResourceTemplateURL}"
+            ],
+            "description": "Adds new AWS resource from generic template"
+        },
+
+        "Parameter": {
+            "prefix": "Parameter",
+            "body": [
+                "${1:ParameterName}:",
+                "  Description: ${2:ParameterDescription}",
+                "  Type: ${3:|String,Number,CommaDelimitedList|}",
+                "  Default: ${4:ParameterDefault}"
+            ],
+            "description": "Adds new parameter"
+        },
+
+        "FindInMap": {
+            "prefix": "!FindInMap",
+            "body": [
+                "!FindInMap [${1:Map}, ${2:Selector}, ${3:Value}]"
+            ],
+            "description": "Get alue from mappings section"
+        },
+
+        "GetAtt": {
+            "prefix": "!GetAtt",
+            "body": [
+                "!GetAtt $0"
+            ],
+            "description": "Get attribute of resources by your template"
+        },
+
+        "ImportValue": {
+            "prefix": "!ImportValue",
+            "body": "!ImportValue ${1:ValueToImport}",
+            "description": "Cross stack import",
+        },
+
+        "Join": {
+            "prefix": "!Join",
+            "body": [
+                "!Join",
+                "- '${1:Delimiter}'",
+                "- - ${2: Value}",
+                "  - ${0: Value}"
+            ],
+            "description": "Add Join"
+        },
+
+        "Reference":{
+            "prefix": "!Ref",
+            "body": "!Ref ${0}",
+            "description": "Adds referenc to template"
+        },
+
+        "Tag": {
+            "prefix": "tag",
+            "body": [
+                "- Key: ${1:KeyName}",
+                "  Value: ${2:KeyValue}"
+            ],
+            "description": "Adds tag"
+        },
+
+        "Output": {
+            "prefix": "Output",
+            "body": [
+                "${1:OutputName}",
+                "  Description: ${2:OutputDescription}",
+                "  Value: ${0:OutputValue}"
+            ],
+            "description": "Adds output"
+        },
+
+        "Export": {
+            "prefix": "Export",
+            "body": [
+                "${1:OutputName}",
+                "  Description: ${2:OutputDescription}",
+                "  Value: ${3:OutputValue}",
+                "  Export:",
+                "    Name: ${0:OutputExportName}"
+            ],
+            "description": "Adds export"
+        }
+    }
+    {}

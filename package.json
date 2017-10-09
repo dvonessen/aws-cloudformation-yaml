@@ -1,0 +1,21 @@
+{
+    "name": "aws-cloudformation-yaml",
+    "displayName": "aws-cloudformation-yaml",
+    "description": "Adds yaml Snippets to VS Code",
+    "version": "0.0.1",
+    "publisher": "DanielThielking",
+    "engines": {
+        "vscode": "^1.17.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "yaml",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
+}
