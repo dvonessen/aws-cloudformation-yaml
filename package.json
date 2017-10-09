@@ -2,7 +2,7 @@
     "name": "aws-cloudformation-yaml",
     "displayName": "aws-cloudformation-yaml",
     "description": "Adds YAML snippets for AWS CloudFormation to VS Code",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "DanielThielking",
     "engines": {
         "vscode": "^1.16.1"
