@@ -96,7 +96,7 @@
         "body": [
             "${1:ParameterName}:",
             "  Description: ${2:ParameterDescription}",
-            "  Type: ${3:|String,Number,CommaDelimitedList|}",
+            "  Type: ${3|String,Number,CommaDelimitedList|}",
             "  Default: ${4:ParameterDefault}"
         ],
         "description": "Adds new parameter"

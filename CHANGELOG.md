@@ -2,6 +2,10 @@
 All notable changes to the "aws-cloudformation-yaml" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+
+## [0.0.4] - 2017-10-09
+### Fixed
+- Parameter snippets type selection
 ## [0.0.3] - 2017-10-09
 ### Added
 Brief documentation to README.md

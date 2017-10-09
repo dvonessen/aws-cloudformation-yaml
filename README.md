@@ -21,12 +21,11 @@ Following Snippets do provide this extension:
   * * !GetAtt
   * * !ImportValue
   * * !Join
-## Known Issues
-
-No known issues
 
 ## Release Notes
 
+### 0.0.4
+Fixed Parameter snippets type selection
 ### 0.0.3
 Improved documentation
 ### 0.0.2
