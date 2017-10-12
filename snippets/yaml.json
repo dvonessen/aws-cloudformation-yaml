@@ -162,5 +162,27 @@
             "    Name: ${0:OutputExportName}"
         ],
         "description": "Adds export"
+    },
+    "AWSConfig": {
+        "prefix": "AWSConfig",
+        "body": [
+            "[",
+            "    {",
+            "        \"ParameterKey\": \"${1:ParameterKey}\",",
+            "        \"ParameterValue\": \"${2:ParameterValue}\"",
+            "    }",
+            "]"
+        ],
+        "description": "New AWS Json Config"
+    },
+    "ParameterKeyValue": {
+        "prefix": "ParamKey",
+        "body": [
+            "{",
+            "    \"ParameterKey\": \"${1:ParameterKey}\",",
+            "    \"ParameterValue\": \"${2:ParameterValue}\"",
+            "}"
+        ],
+        "description": "Add new ConfigParameter"
     }
 }
