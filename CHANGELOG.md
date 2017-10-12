@@ -4,6 +4,13 @@ All notable changes to the "aws-cloudformation-yaml" extension will be documente
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.0.8] - 2017-10-11
+
+### Changed
+
+* Changed Type handling for new resources, now you do not have to specify double colons
+* Changed cursor position after last placeholders
+
 ## [0.0.7] - 2017-10-11
 
 ### Added

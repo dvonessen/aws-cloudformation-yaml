@@ -55,6 +55,7 @@
             "      BucketUrl: https://clouds-configuration.s3.amazonaws.com/clouds/cfn",
             "",
             "Resources:",
+            "  $0",
             "",
             "Outputs:"
         ],
@@ -64,11 +65,11 @@
         "prefix": "NewResource",
         "body": [
             "${1:ResourceName}:",
-            "  Type: AWS::${2:ResourceType}",
+            "  Type: AWS::${2:ResourceGroup}::${3:ResourceType}",
             "  DependsOn:",
-            "  - ${3:ResourceDependsOn}",
+            "  - ${4:ResourceDependsOn}",
             "  Properties:",
-            "    ${0:ResourceProperties}"
+            "    ${5:ResourceProperties}"
         ],
         "description": "Adds new AWS resource to template"
     },
@@ -162,27 +163,5 @@
             "    Name: ${0:OutputExportName}"
         ],
         "description": "Adds export"
-    },
-    "AWSConfig": {
-        "prefix": "AWSConfig",
-        "body": [
-            "[",
-            "    {",
-            "        \"ParameterKey\": \"${1:ParameterKey}\",",
-            "        \"ParameterValue\": \"${2:ParameterValue}\"",
-            "    }",
-            "]"
-        ],
-        "description": "New AWS Json Config"
-    },
-    "ParameterKeyValue": {
-        "prefix": "ParamKey",
-        "body": [
-            "{",
-            "    \"ParameterKey\": \"${1:ParameterKey}\",",
-            "    \"ParameterValue\": \"${2:ParameterValue}\"",
-            "}"
-        ],
-        "description": "Add new ConfigParameter"
     }
 }
