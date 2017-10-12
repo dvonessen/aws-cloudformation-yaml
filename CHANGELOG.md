@@ -4,6 +4,12 @@ All notable changes to the "aws-cloudformation-yaml" extension will be documente
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.0.9] - 2017-10-11
+
+### Added
+
+* New YAML snippet "MetadataParameterGroup", adds new ParameterGroup to CloudFormation::Interface
+
 ## [0.0.8] - 2017-10-11
 
 ### Changed

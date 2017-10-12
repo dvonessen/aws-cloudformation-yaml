@@ -43,7 +43,7 @@
             "    Parameters:",
             "    - Customer",
             "    - CustomerProject",
-            " - Label:",
+            "  - Label:",
             "      default: Choose Branch and Environment",
             "    Parameters:",
             "    - Environment",
@@ -60,6 +60,16 @@
             "Outputs:"
         ],
         "description": "This snippet provides a complete AWS template structure."
+    },
+    "MetadataParameterGroup": {
+        "prefix": "ParameterGroup",
+        "body": [
+            "- Label:",
+            "      default: ${1:ParameterGroupDescription}",
+            "    Parameters:",
+            "    - ${0:Parameter}"
+        ],
+        "description": "Adds ParameterGroup to Interface"
     },
     "Resource": {
         "prefix": "NewResource",
