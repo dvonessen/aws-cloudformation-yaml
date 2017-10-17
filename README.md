@@ -29,6 +29,7 @@ Following Snippets do provide this extension for YAML files:
     * !GetAtt
     * !ImportValue
     * !Join
+    * !Sub
 
 Following snippets do provide this extenstion for JSON files:
 

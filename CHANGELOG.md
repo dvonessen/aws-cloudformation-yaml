@@ -4,6 +4,16 @@ All notable changes to the "aws-cloudformation-yaml" extension will be documente
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.1.0] - 2017-10-17
+
+### Fixed
+
+* Wrong indentions in snippets
+
+### Added
+
+* CloudFormation intrinsic function !Sub
+
 ## [0.0.9] - 2017-10-11
 
 ### Added
