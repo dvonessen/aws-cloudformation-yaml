@@ -4,6 +4,12 @@ All notable changes to the "aws-cloudformation-yaml" extension will be documente
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.1.1] - 2017-10-18
+
+### Fixed
+
+* Missing colons on Output and Export Snippet
+
 ## [0.1.0] - 2017-10-17
 
 ### Fixed

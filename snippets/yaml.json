@@ -162,7 +162,7 @@
     "Output": {
         "prefix": "Output",
         "body": [
-            "${1:OutputName}",
+            "${1:OutputName}:",
             "  Description: ${2:OutputDescription}",
             "  Value: ${0:OutputValue}"
         ],
@@ -171,7 +171,7 @@
     "Export": {
         "prefix": "Export",
         "body": [
-            "${1:OutputName}",
+            "${1:OutputName}:",
             "  Description: ${2:OutputDescription}",
             "  Value: ${3:OutputValue}",
             "  Export:",
