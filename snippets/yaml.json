@@ -61,8 +61,18 @@
         ],
         "description": "This snippet provides a complete AWS template structure."
     },
+    "Parameter": {
+        "prefix": "Parameter",
+        "body": [
+            "${1:ParameterName}:",
+            "  Description: ${2:ParameterDescription}",
+            "  Type: ${3|String,Number,CommaDelimitedList|}",
+            "  Default: ${4:ParameterDefault}"
+        ],
+        "description": "Adds new parameter"
+    },
     "MetadataParameterGroup": {
-        "prefix": "ParameterGroup",
+        "prefix": "MetadataParameterGroup",
         "body": [
             "- Label:",
             "    default: ${1:ParameterGroupDescription}",
@@ -71,8 +81,16 @@
         ],
         "description": "Adds ParameterGroup to Interface"
     },
+    "ConditionsSection": {
+        "prefix": "ConditionsSection",
+        "body": [
+            "Conditions:",
+            "  ${1:LogicalId}: ${2:IntrinsicFunction}"
+        ],
+        "description": "Adds Conditions Section to Template"
+    },
     "Resource": {
-        "prefix": "NewResource",
+        "prefix": "Resource",
         "body": [
             "${1:ResourceName}:",
             "  Type: AWS::${2:ResourceGroup}::${3:ResourceType}",
@@ -84,7 +102,7 @@
         "description": "Adds new AWS resource to template"
     },
     "ResourceWithTemplate": {
-        "prefix": "NewResourceWithTemplateURL",
+        "prefix": "ResourceWithTemplateURL",
         "body": [
             "${1:ResourceName}:",
             "Type: AWS::CloudFormation::Stack",
@@ -101,63 +119,6 @@
             "      - cfn-generic/${0:ResourceTemplateURL}"
         ],
         "description": "Adds new AWS resource from generic template to current template"
-    },
-    "Parameter": {
-        "prefix": "Parameter",
-        "body": [
-            "${1:ParameterName}:",
-            "  Description: ${2:ParameterDescription}",
-            "  Type: ${3|String,Number,CommaDelimitedList|}",
-            "  Default: ${4:ParameterDefault}"
-        ],
-        "description": "Adds new parameter"
-    },
-    "FindInMap": {
-        "prefix": "!FindInMap",
-        "body": "!FindInMap [${1:Map}, ${2:Selector}, ${3:Value}]",
-        "description": "Add !FindInMapp function"
-    },
-    "GetAtt": {
-        "prefix": "!GetAtt",
-        "body": "!GetAtt $0",
-        "description": "Add !GetAtt function"
-    },
-    "ImportValue": {
-        "prefix": "!ImportValue",
-        "body": "!ImportValue ${1:ValueToImport}",
-        "description": "Add !ImportValue function"
-    },
-    "Join": {
-        "prefix": "!Join",
-        "body": [
-            "!Join",
-            "- '${1:Delimiter}'",
-            "- - ${2: Value}",
-            "  - ${0: Value}"
-        ],
-        "description": "Add !Join function"
-    },
-    "Reference": {
-        "prefix": "!Ref",
-        "body": "!Ref ${0}",
-        "description": "Add !Ref function"
-    },
-    "Sub": {
-        "prefix": "!Sub",
-        "body": [
-            "!Sub:",
-            "- ${1:StringWithVariables}",
-            "- { ${2:VarName}: ${3:VarValue}$0 }"
-        ],
-        "description": "Adds !Sub function"
-    },
-    "Tag": {
-        "prefix": "Tag",
-        "body": [
-            "- Key: ${1:KeyName}",
-            "  Value: ${2:KeyValue}"
-        ],
-        "description": "Adds Tag"
     },
     "Output": {
         "prefix": "Output",
@@ -178,5 +139,105 @@
             "    Name: ${0:OutputExportName}"
         ],
         "description": "Adds export"
+    },
+    "Tag": {
+        "prefix": "Tag",
+        "body": [
+            "- Key: ${1:KeyName}",
+            "  Value: ${2:KeyValue}"
+        ],
+        "description": "Adds Tag"
+    },
+    "FindInMap": {
+        "prefix": "!FindInMap",
+        "body": "!FindInMap [${1:Map}, ${2:Selector}, ${3:Value}]",
+        "description": "Add !FindInMapp function"
+    },
+    "GetAtt": {
+        "prefix": "!GetAtt",
+        "body": "!GetAtt $0",
+        "description": "Add !GetAtt function"
+    },
+    "GetAZs": {
+        "prefix": "!GetAZs",
+        "body": "!GetAZs ${0:Region}",
+        "description": "Add !GetAZs function"
+    },
+    "ImportValue": {
+        "prefix": "!ImportValue",
+        "body": "!ImportValue ${1:ValueToImport}",
+        "description": "Add !ImportValue function"
+    },
+    "Join": {
+        "prefix": "!Join",
+        "body": [
+            "!Join",
+            "- '${1:Delimiter}'",
+            "- - ${2: Value}",
+            "  - ${0: Value}"
+        ],
+        "description": "Add !Join function"
+    },
+    "Select": {
+        "prefix": "!Select",
+        "body": "!Select [${1:Index}, ${2:List}]$0",
+        "description": "Add !Select function"
+    },
+    "Split": {
+        "prefix": "!Split",
+        "body": "!Split [${1:Delimiter}, ${2:SourceString}]$0",
+        "description": "Add !Split function"
+    },
+    "Sub": {
+        "prefix": "!Sub",
+        "body": [
+            "!Sub:",
+            "- ${1:StringWithVariables}",
+            "- { ${2:VarName}: ${3:VarValue}$0 }"
+        ],
+        "description": "Adds !Sub function"
+    },
+    "Reference": {
+        "prefix": "!Ref",
+        "body": "!Ref ${0}",
+        "description": "Add !Ref function"
+    },
+    "And": {
+        "prefix": "!And",
+        "body": [
+            "!And",
+            "- ${1:Condition1}",
+            "- ${2:Condition2}"
+        ],
+        "description": "Add !And function"
+    },
+    "Equals": {
+        "prefix": "!Equals",
+        "body": "!Equals [${1:Value1}, ${2:Value2}]$0",
+        "description": "Add !Equals function"
+    },
+    "If": {
+        "prefix": "!If",
+        "body": [
+            "!If",
+            "- ${1:Condition}",
+            "- ${2:CondTrue}",
+            "- ${3:CondFalse}"
+        ],
+        "description": "Add !If function"
+    },
+    "Not": {
+        "prefix": "!Not",
+        "body": "!Not [${1:Condition}]",
+        "description": "Add !Not function"
+    },
+    "Or": {
+        "prefix": "!Or",
+        "body": [
+            "!Or",
+            "- ${1:Condition1}",
+            "- ${2:Condition2}"
+        ],
+        "description": "Add !Or function"
     }
 }

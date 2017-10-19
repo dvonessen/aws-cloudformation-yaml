@@ -4,6 +4,27 @@ All notable changes to the "aws-cloudformation-yaml" extension will be documente
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.1.2] - 2017.10.19
+
+### Added
+
+* Conditions section now as snippet available
+* Intrinsic function snippets
+  * !GetAZs
+  * !Select
+  * !Split
+* Intrinsic conditions
+  * !And
+  * !Equals
+  * !If
+  * !Not
+  * !Or
+
+### Changed
+
+* Order of internal snippets
+* README.md
+
 ## [0.1.1] - 2017-10-18
 
 ### Fixed

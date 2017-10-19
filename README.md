@@ -14,27 +14,41 @@ Project located on [Github](https://github.com/dthielking/aws-cloudformation-yam
 Following Snippets do provide this extension for YAML files:
 
 * AWSTemplate (Adds a complete template structure)
-* Parameter section
-  * Parameter (Adds new parameter to parameter section of your template)
-* Resource section
-  * NewResource (Adds a new resource)
-  * NewResourceWithTemplateURL (Adds a resource with TemplateURL)
-* Output section
-  * Output (Adds structure of Output)
-  * Export (Adds structure of Export for Output)
+* Sections
+  * Parameter section
+    * __Parameter__ (Adds new parameter to parameter section of your template)
+  * Metadata section
+    * __MetadataParameterGroup__ (Adds new ParameterGroup into Metadata section)
+  * __ConditionsSection__ (Adds new Conditions Section into template)
+  * Resource section
+    * __Resource__ (Adds a new resource)
+    * __ResourceWithTemplateUR__ (Adds a resource with TemplateURL)
+  * Output section
+    * __Output__ (Adds structure of Output)
+    * __Export__ (Adds structure of Export for Output)
 * Miscellaneous
-  * Tags (Add Tag: Key, Value)
-  * Function List:
-    * !FindInMap
-    * !GetAtt
-    * !ImportValue
-    * !Join
-    * !Sub
+  * __Tags__ (Add Tag: Key, Value)
+  * Intrinsic Functions
+    * __!FindInMap__
+    * __!GetAtt__
+    * __!GetAZs__
+    * __!ImportValue__
+    * __!Join__
+    * __!Select__
+    * __!Split__
+    * __!Sub__
+    * __!Ref__
+  * Condition Functions
+    * __!And__
+    * __!Equals__
+    * __!If__
+    * __!Not__
+    * __!Or__
 
 Following snippets do provide this extenstion for JSON files:
 
-* AWSConfig (Adds a complete parameter configuration)
-* ParamKey (Adds new parameters to configuration file)
+* __AWSConfig__ (Adds a complete parameter configuration)
+* __ParamKey__ (Adds new parameters to configuration file)
 
 ## Release Notes
 
