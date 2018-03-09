@@ -163,6 +163,11 @@
         "body": "!GetAZs ${0:Region}",
         "description": "Add !GetAZs function"
     },
+    "GetCidr": {
+        "prefix": "!GetCidr",
+        "body": "!GetCidr [${1:IpBlock}, ${2:Count}, ${3:SizeMask}]",
+        "description": "Add !GetCidr function"
+    },
     "ImportValue": {
         "prefix": "!ImportValue",
         "body": "!ImportValue ${1:ValueToImport}",

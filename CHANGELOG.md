@@ -4,6 +4,13 @@ All notable changes to the "aws-cloudformation-yaml" extension will be documente
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.1.3] - 2018.03.09
+
+### Added
+
+* Intrinsic function snippets
+  * !GetCidr
+
 ## [0.1.2] - 2017.10.19
 
 ### Added
