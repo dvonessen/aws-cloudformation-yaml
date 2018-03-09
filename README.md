@@ -54,4 +54,4 @@ Following snippets do provide this extenstion for JSON files:
 ## Release Notes
 
 You will find all release notes under following link:
-[Release Notes](https://github.com/dthielking/aws-cloudformation-yaml/blob/master/CHANGELOG.md)
+[Release Notes](CHANGELOG.md)
