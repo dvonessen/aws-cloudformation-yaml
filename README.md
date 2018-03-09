@@ -32,6 +32,7 @@ Following Snippets do provide this extension for YAML files:
     * __!FindInMap__
     * __!GetAtt__
     * __!GetAZs__
+    * __!GetCidr__    
     * __!ImportValue__
     * __!Join__
     * __!Select__
