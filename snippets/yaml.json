@@ -50,16 +50,14 @@
             "      - BranchName",
             "",
             "Mappings:",
-            "  CFNBucket:",
-            "    AllRegions:",
-            "      BucketUrl: https://clouds-configuration.s3.amazonaws.com/clouds/cfn",
             "",
             "Resources:",
             "  $0",
             "",
-            "Outputs:"
+            "Outputs:",
+            "  $1"
         ],
-        "description": "This snippet provides a complete AWS template structure."
+        "description": "This snippet provides a complete AWS CFN template structure."
     },
     "Parameter": {
         "prefix": "Parameter",
@@ -196,7 +194,7 @@
     "Sub": {
         "prefix": "!Sub",
         "body": [
-            "!Sub:",
+            "!Sub",
             "- ${1:StringWithVariables}",
             "- { ${2:VarName}: ${3:VarValue}$0 }"
         ],
