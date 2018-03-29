@@ -4,6 +4,22 @@ All notable changes to the "aws-cloudformation-yaml" extension will be documente
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.2.1] - 2018.03.29
+
+### Added
+
+* Added jump marker to output section of AWSTemplate Snippet
+
+### Changed
+
+* Fixed Bug with !Sub command
+  * After typing Sub completion result was !Sub: colon is wrong
+* Changed description of AWSTemplate snippet
+
+## [0.2.0]
+
+* ???
+
 ## [0.1.2] - 2017.10.19
 
 ### Added
