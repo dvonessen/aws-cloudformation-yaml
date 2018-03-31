@@ -32,6 +32,7 @@ Following Snippets do provide this extension for YAML files:
     * __!FindInMap__
     * __!GetAtt__
     * __!GetAZs__
+    * __!Cidr__    
     * __!ImportValue__
     * __!Join__
     * __!Select__
@@ -53,4 +54,4 @@ Following snippets do provide this extenstion for JSON files:
 ## Release Notes
 
 You will find all release notes under following link:
-[Release Notes](https://github.com/dthielking/aws-cloudformation-yaml/blob/master/CHANGELOG.md)
+[Release Notes](CHANGELOG.md)
